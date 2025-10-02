@@ -1,0 +1,24 @@
+name: Cache Dependencies Example
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Prime cache step
+        id: prime-cache-605c345
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: cache-605c345
+
+      - name: Show cache result
+        run: echo "Cache hit? ${{ steps.prime-cache-605c345.outputs.cache-hit }}"
