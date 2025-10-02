@@ -13,8 +13,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Prime cache step
-        id: prime-cache-605c345
+      - name: Prime cache 605c345
+        id: prime-cache-605c345    # ⚠ Make sure the ID is exactly this
         uses: actions/cache@v4
         with:
           path: ~/.npm
