@@ -10,15 +10,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Checkout code
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Step 2: Prime cache
       - name: Prime cache 605c345
-        id: prime_cache_605c345   # Use underscores, not dashes
+        id: prime_cache_605c345    # ⚠ ID uses underscores, not dashes
         uses: actions/cache@v4
         with:
           path: ~/.npm
           key: cache-605c345
 
+      # Step 3: Show cache result
       - name: Show cache result
         run: echo "Cache hit? ${{ steps.prime_cache_605c345.outputs.cache-hit }}"
